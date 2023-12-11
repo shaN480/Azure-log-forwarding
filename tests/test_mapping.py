@@ -13,7 +13,7 @@
 #   limitations under the License.
 
 from logs_ingest.mapping import extract_resource_id_attributes, RESOURCE_ID_ATTRIBUTE, SUBSCRIPTION_ATTRIBUTE, \
-    RESOURCE_GROUP_ATTRIBUTE, RESOURCE_TYPE_ATTRIBUTE, RESOURCE_NAME_ATTRIBUTE
+    RESOURCE_GROUP_ATTRIBUTE, RESOURCE_TYPE_ATTRIBUTE, RESOURCE_NAME_ATTRIBUTE, RESOURCE_TAG
 
 
 def test_extract_resource_id_simple_resource_id():
@@ -48,7 +48,8 @@ def run_successful_extraction_test(
         expected_subscription: str,
         expected_resource_group: str,
         expected_resource_type: str,
-        expected_resource_name: str
+        expected_resource_name: str, 
+        expected_resource_tag: str
 ):
     result_dict = {}
     extract_resource_id_attributes(result_dict, resource_id)
